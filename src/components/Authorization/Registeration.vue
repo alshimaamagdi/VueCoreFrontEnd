@@ -161,7 +161,6 @@ export default {
     //Disable Submit
     computed: {
         hasErrors() {
-            console.log(this.$v, "this.$v")
             return this.v$?.$pending || this.v$?.formData?.$error;
         },
     },
@@ -171,7 +170,6 @@ export default {
 
     methods: {
         validateEmail() {
-            console.log(this.v$.formData, "this.$vsdd")
             this.isEmailValid = this.v$.formData.Email.$pending !== true && this.v$.formData.Email;
         },
         touchFields() {
@@ -181,9 +179,6 @@ export default {
         async registerUser() {
             try {
 
-                //this.showToastsuccessed()
-                // Proceed with registration
-                console.log('Form is valid. Proceeding with registration.');
                 // Make an HTTP request to your API for user registration
                 const response = await axios({
                     method: 'post',
@@ -204,15 +199,17 @@ export default {
                 });
 
                 // // Assuming the server responds with a token upon successful registration
-                // const token = response.data.Token;//
+                const token = response.data.token;//
 
                 // // Store the token in localStorage
-                // localStorage.setItem('token', token);
+                localStorage.setItem('token', token);
 
                 // Redirect or perform other actions after successful registration
-                if (response.status == 200)
+                if (response.status == 200) {
                     this.$toast.success('User registered successfully.');
-                // For a real-world scenario, you might want to redirect the user to another page
+                    if (response.data.isAuthenticated)
+                        this.$router.push('/EmployeeList')
+                }
 
             } catch (error) {
                 if (error.response.status == 400)

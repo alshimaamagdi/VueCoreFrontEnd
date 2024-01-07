@@ -5,7 +5,6 @@ import Login from './components/Authorization/Login.vue'
 </script>
 
 <template>
-      <Registeration/>
       <router-view></router-view>
 </template>
 

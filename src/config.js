@@ -1,5 +1,6 @@
 const config = {
-    apiUrl: 'http://localhost:9090/api/',
+    apiUrl: 'http://lightbulbtech-001-site1.etempurl.com/api/',
+    apiUrlImage: 'http://lightbulbtech-001-site1.etempurl.com',
   };
   
   export default config;

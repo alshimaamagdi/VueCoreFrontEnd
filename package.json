@@ -2,10 +2,10 @@
   "name": "vuecore-employee-frontend",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
     "dev": "vite --force",
-    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -18,6 +18,16 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
-    "vite": "^5.0.10"
-  }
+    "@vue/cli-service": "~5.0.8",
+    "vite": "^5.0.10",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "tsConfig": "tsconfig.app.json",
+  "aot": true,
+  "assets": [
+    "src/favicon.ico",
+    "src/assets",
+    "src/web.config"
+  ],
+  "type": "module"
 }
